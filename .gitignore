@@ -1,17 +1,12 @@
-# ASL Alphabet Recognition - .gitignore
-
-
 data/raw/
 data/processed/
 *.csv
 *.zip
 *.tar.gz
 
-# Keep the directory structure but ignore contents
 !data/.gitkeep
 !data/raw/.gitkeep
 !data/processed/.gitkeep
-
 
 models/saved_models/*.h5
 models/saved_models/*.keras
@@ -22,13 +17,9 @@ models/saved_models/*.weights
 *.onnx
 *.tflite
 
-# Keep model directory structure
 !models/.gitkeep
 !models/saved_models/.gitkeep
-
-# Exception: Keep model architecture diagram
 !models/model_architecture.png
-
 
 results/*.png
 results/*.jpg
@@ -38,21 +29,16 @@ results/*.txt
 logs/
 outputs/
 
-# Keep results directory
 !results/.gitkeep
 
-
-# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
 
-# C extensions
 *.c
 *.cpp
 
-# Distribution / packaging
 .Python
 build/
 develop-eggs/
@@ -72,11 +58,9 @@ share/python-wheels/
 *.egg
 MANIFEST
 
-# PyInstaller
 *.manifest
 *.spec
 
-# Unit test / coverage reports
 htmlcov/
 .tox/
 .nox/
@@ -91,62 +75,46 @@ coverage.xml
 .pytest_cache/
 cover/
 
-# Translations
 *.mo
 *.pot
 
-# Django stuff:
 *.log
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
 
-# Flask stuff:
 instance/
 .webassets-cache
 
-# Scrapy stuff:
 .scrapy
 
-# Sphinx documentation
 docs/_build/
 
-# PyBuilder
 .pybuilder/
 target/
 
-# Jupyter Notebook
 .ipynb_checkpoints
 *.ipynb_checkpoints/
 *-checkpoint.ipynb
 
-# IPython
 profile_default/
 ipython_config.py
 
-# pyenv
 .python-version
 
-# pipenv
 Pipfile.lock
 
-# poetry
 poetry.lock
 
-# pdm
 .pdm.toml
 
-# PEP 582
 __pypackages__/
 
-# Celery stuff
 celerybeat-schedule
 celerybeat.pid
 
-# SageMath parsed files
 *.sage.py
 
-# Environments
 .env
 .venv
 env/
@@ -155,69 +123,50 @@ ENV/
 env.bak/
 venv.bak/
 
-# Spyder project settings
 .spyderproject
 .spyproject
 
-# Rope project settings
 .ropeproject
 
-# mkdocs documentation
 /site
 
-# mypy
 .mypy_cache/
 .dmypy.json
 dmypy.json
 
-# Pyre type checker
 .pyre/
 
-# pytype static type analyzer
 .pytype/
 
-# Cython debug symbols
 cython_debug/
-
 
 .ipynb_checkpoints/
 *.ipynb_checkpoints
 notebooks/.ipynb_checkpoints/
 *-checkpoint.ipynb
 
-# Jupyter Notebook metadata
 .jupyter/
 .local/
 
-
-# TensorBoard logs
 logs/
 runs/
 tensorboard/
 
-# Saved models (already covered above but being explicit)
 saved_models/
 checkpoints/
 *.ckpt
 *.index
 *.data-00000-of-00001
 
-# TensorFlow Lite
 *.tflite
-
-# ONNX
 *.onnx
-
 
 *.pth
 *.pt
 
-
-# Kaggle credentials
 kaggle.json
 .kaggle/
 
-# Large image folders
 *.jpg
 *.jpeg
 *.png
@@ -226,26 +175,20 @@ kaggle.json
 *.tiff
 *.webp
 
-# Videos
 *.mp4
 *.avi
 *.mov
 *.mkv
 
-# Audio
 *.wav
 *.mp3
 
-# Exceptions: Keep important images
 !assets/*.png
 !assets/*.jpg
 !results/sample_*.png
 !models/model_architecture.png
 !README_images/*.png
 
-
-
-# Visual Studio Code
 .vscode/
 .vscode/*
 !.vscode/settings.json
@@ -256,7 +199,6 @@ kaggle.json
 .history/
 *.vsix
 
-# PyCharm
 .idea/
 .idea/*
 *.iml
@@ -265,14 +207,11 @@ kaggle.json
 .idea_modules/
 out/
 
-# Sublime Text
 *.sublime-workspace
 *.sublime-project
 
-# Atom
 .atom/
 
-# Vim
 *.swp
 *.swo
 *~
@@ -280,7 +219,6 @@ out/
 Session.vim
 .netrwhist
 
-# Emacs
 *~
 \#*\#
 /.emacs.desktop
@@ -290,9 +228,6 @@ auto-save-list
 tramp
 .\#*
 
-
-
-# macOS
 .DS_Store
 .AppleDouble
 .LSOverride
@@ -311,7 +246,6 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-# Windows
 Thumbs.db
 Thumbs.db:encryptable
 ehthumbs.db
@@ -326,20 +260,15 @@ $RECYCLE.BIN/
 *.msp
 *.lnk
 
-# Linux
 *~
 .fuse_hidden*
 .directory
 .Trash-*
 .nfs*
 
-
 .streamlit/secrets.toml
 .streamlit/config.toml
 
-
-
-# Temporary files
 *.tmp
 *.temp
 *.bak
@@ -348,7 +277,6 @@ $RECYCLE.BIN/
 tmp/
 temp/
 
-# Compressed files
 *.7z
 *.dmg
 *.gz
@@ -358,16 +286,13 @@ temp/
 *.tar
 *.zip
 
-# Archives
 archive/
 old/
 backup/
 
-# System files
 *.lock
 *.pid
 
-# API Keys & Secrets
 .env
 .env.local
 .env.*.local
@@ -377,66 +302,50 @@ config.secret.json
 *.key
 *.pem
 
-# Documentation builds
 docs/_build/
 docs/.doctrees/
 
-# Database
 *.db
 *.sqlite
 *.sqlite3
 
-# Docker
 .docker/
 docker-compose.override.yml
 
-
-# Screenshots from demos
 screenshots/
 demo_images/
 
-# Experimental notebooks
 experiments/
 scratch/
 playground/
 
-# Old versions
 v1/
 v2/
 deprecated/
 
-# Personal notes
 notes.txt
 TODO.txt
 NOTES.md
 
-# Test outputs
 test_outputs/
 debug/
 
-# Profiling
 *.prof
 *.lprof
 profile_*.txt
 
-
-# Keep README images
 !README_images/
 !README_images/*
 
-# Keep sample results for documentation
 !results/sample_confusion_matrix.png
 !results/sample_training_history.png
 
-# Keep .gitkeep files to preserve directory structure
 !**/.gitkeep
 
-# Keep requirements and configs
 !requirements.txt
 !setup.py
 !pyproject.toml
 
-# Keep documentation
 !README.md
 !CONTRIBUTING.md
 !LICENSE
