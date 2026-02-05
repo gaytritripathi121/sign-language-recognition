@@ -1,7 +1,4 @@
-"""
-Data preprocessing module for ASL Alphabet Recognition
-Handles data loading, preprocessing, and augmentation
-"""
+
 import os
 import json
 import shutil
@@ -68,7 +65,6 @@ class ASLDataPreprocessor:
         for cls, count in sorted(class_distribution.items()):
             print(f"  {cls:10s}: {count:5d} images")
         
-        # Save dataset info
         with open(DATA_DIR / 'dataset_info.json', 'w') as f:
             json.dump(self.data_info, f, indent=4)
         
@@ -80,7 +76,6 @@ class ASLDataPreprocessor:
         print("Creating Train/Val/Test Split")
         print("="*60)
         
-        # Set random seed
         random.seed(RANDOM_SEED)
         np.random.seed(RANDOM_SEED)
         
@@ -99,7 +94,6 @@ class ASLDataPreprocessor:
                 print(f"Skipping {class_name} - directory not found")
                 continue
             
-            # Get all images
             image_files = list(class_dir.glob('*.jpg')) + \
                          list(class_dir.glob('*.png'))
             
@@ -107,20 +101,16 @@ class ASLDataPreprocessor:
                 print(f"Warning: No images found for class {class_name}")
                 continue
             
-            # Shuffle
             random.shuffle(image_files)
             
-            # Calculate split indices
             n_total = len(image_files)
             n_train = int(n_total * TRAIN_SPLIT)
             n_val = int(n_total * VAL_SPLIT)
             
-            # Split files
             train_files = image_files[:n_train]
             val_files = image_files[n_train:n_train + n_val]
             test_files = image_files[n_train + n_val:]
             
-            # Copy files to respective directories
             for split, files in [('train', train_files), 
                                 ('val', val_files), 
                                 ('test', test_files)]:
@@ -143,7 +133,6 @@ class ASLDataPreprocessor:
         print("Creating Data Generators")
         print("="*60)
         
-        # Training data generator with augmentation
         train_datagen = ImageDataGenerator(
             rescale=1./255,
             rotation_range=ROTATION_RANGE,
@@ -156,10 +145,8 @@ class ASLDataPreprocessor:
             fill_mode='nearest'
         )
         
-        # Validation and test data generators (only rescaling)
         val_test_datagen = ImageDataGenerator(rescale=1./255)
         
-        # Create generators
         train_generator = train_datagen.flow_from_directory(
             PROCESSED_DATA_DIR / 'train',
             target_size=IMG_SIZE,
@@ -205,13 +192,8 @@ def main():
     """Main preprocessing pipeline"""
     preprocessor = ASLDataPreprocessor()
     
-    # Step 1: Analyze dataset
     preprocessor.analyze_dataset()
-    
-    # Step 2: Create splits
     preprocessor.create_train_val_test_split()
-    
-    # Step 3: Create generators
     train_gen, val_gen, test_gen = preprocessor.create_data_generators()
     
     print("\n" + "="*60)
