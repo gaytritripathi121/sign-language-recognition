@@ -1,28 +1,20 @@
-"""
-Quick test script to verify all components work
-"""
+
 
 from pathlib import Path
 import sys
 
-# --------------------------------------------------
-# Ensure project root is on PYTHONPATH
-# --------------------------------------------------
+
 ROOT_DIR = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT_DIR))
 
-# --------------------------------------------------
-# Imports (PACKAGE-STYLE — CORRECT)
-# --------------------------------------------------
+
 from src.config import Config
 from src.data_preprocessing import ASLDataPreprocessor
 from src.model import ASLModel
 from src.inference import ImprovedASLPredictor
 
 
-# --------------------------------------------------
-# Tests
-# --------------------------------------------------
+
 print("=" * 70)
 print("ASL Recognition System - Quick Test")
 print("=" * 70)
