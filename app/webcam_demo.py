@@ -1,12 +1,9 @@
-"""
-Real-time webcam demo for ASL Alphabet Recognition
-"""
+
 import cv2
 import sys
 from pathlib import Path
 import time
 
-# Add project root to path
 sys.path.append(str(Path(__file__).parent.parent))
 
 from src.inference import ASLPredictor
@@ -27,7 +24,6 @@ def main():
         print("Please ensure model is trained. Run: python src/train.py")
         return
     
-    # Initialize webcam
     print("\nInitializing webcam...")
     cap = cv2.VideoCapture(0)
     
@@ -35,7 +31,6 @@ def main():
         print("❌ Error: Could not open webcam")
         return
     
-    # Set camera properties for better performance
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
     cap.set(cv2.CAP_PROP_FPS, 30)
@@ -50,7 +45,6 @@ def main():
     print("  - Press 'p' to pause/resume")
     print("="*70 + "\n")
     
-    # FPS calculation
     fps = 0
     frame_count = 0
     start_time = time.time()
@@ -64,7 +58,6 @@ def main():
                 print("Error: Failed to capture frame")
                 break
             
-            # Flip frame for mirror effect
             frame = cv2.flip(frame, 1)
             
             # Get prediction
@@ -93,7 +86,6 @@ def main():
             cv2.putText(display_frame, "Confidence", (10, display_frame.shape[0] - 55),
                        cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1)
         else:
-            # Display pause message
             pause_frame = display_frame.copy()
             cv2.putText(pause_frame, "PAUSED - Press 'p' to resume", 
                        (50, pause_frame.shape[0] // 2),
