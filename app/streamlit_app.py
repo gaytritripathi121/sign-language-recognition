@@ -1,6 +1,4 @@
-"""
-Streamlit web application for ASL Alphabet Recognition
-"""
+
 import streamlit as st
 import numpy as np
 from PIL import Image
@@ -8,14 +6,12 @@ import cv2
 import sys
 from pathlib import Path
 
-# Add project root to path
 sys.path.append(str(Path(__file__).parent.parent))
 
 from src.inference import ASLPredictor
 from src.config import CLASS_NAMES
 
 
-# Page configuration
 st.set_page_config(
     page_title="ASL Alphabet Recognition",
     page_icon="🤟",
@@ -23,7 +19,6 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS
 st.markdown("""
     <style>
     .main-header {
@@ -118,7 +113,6 @@ def main():
     # Main content
     tab1, tab2, tab3 = st.tabs(["📸 Upload Image", "📹 Live Webcam", "📚 Reference Chart"])
     
-    # Tab 1: Image Upload
     with tab1:
         st.header("Upload an Image")
         
@@ -167,7 +161,6 @@ def main():
                     st.write(f"Confidence: {confidence:.2%}")
                     st.markdown("---")
     
-    # Tab 2: Webcam (Instructions)
     with tab2:
         st.header("Live Webcam Recognition")
         st.info("""
@@ -189,7 +182,6 @@ def main():
         5. Press 'q' to quit
         """)
     
-    # Tab 3: Reference Chart
     with tab3:
         st.header("ASL Alphabet Reference")
         st.write("Learn the ASL alphabet signs:")
@@ -216,7 +208,6 @@ def main():
         https://www.startasl.com/asl-alphabet
         """)
     
-    # Footer
     st.markdown("---")
     st.markdown("""
     <p style='text-align: center; color: #666;'>
